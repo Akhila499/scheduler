@@ -12,7 +12,7 @@ export default function InterviewerList(props) {
  
   const { interviewers } = props;
   const parsedinterviewers = interviewers.map(interviewer => {
-    return <InterviewerListItem key={interviewer.id} {...interviewer} setInterviewer={(e)=>props.setInterviewer(interviewer.id)} selected = {interviewer.id === props.interviewer} />
+    return <InterviewerListItem key={interviewer.id} {...interviewer} setInterviewer={(e)=>props.onChange(interviewer.id)} selected = {interviewer.id === props.interviewer} />
   });
   const interviewersClass = classnames("interviewers",
     {"interviewers__header text--light":props.Interviewer,
