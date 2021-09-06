@@ -6,16 +6,33 @@ import React, { useState, useEffect } from "react";
 import "components/Appointment"
 import Appointment from "components/Appointment";
 import axios from "axios";
-import { getAppointmentsForDay, getInterviewersForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
 
 
 export default function Application(props) {
-  
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    axios
+    .post(`http://localhost:8001/api/appointments/:${appointments.id}`, {interview})
+    .then(res =>{
+      res.send('ok');
+      setState({...state, appointments});
+    })
+
+    
+  }
   const setDay = day => setState({ ...state, day });
-  // const setDays = (days) => {
-    //   //... your code here ...
-    //   setState(prev => ({ ...prev, days }));
-    // }
+  // const setDays = days => setState({ ...state, days });
+    
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -33,7 +50,7 @@ export default function Application(props) {
       axios.get(axioappointments),
       axios.get(axiointerviewers),
     ]).then((all) => {
-      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data  }));
       console.log('intervcsdf',all[2].data);
     }); 
   }, []);
@@ -73,7 +90,9 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {dailyAppointments.map(appointment =>  <Appointment key = {appointment.id} {...appointment} interviewers = {getInterviewersForDay(state, state.day)}/>)}
+        {dailyAppointments.map(appointment =>  <Appointment key = {appointment.id} {...appointment} interviewers = {getInterviewersForDay(state, state.day)} bookInterview = {bookInterview} 
+        interview={getInterview(state, appointment.interview)}
+        />)}
         {/* {dailyInterviewers.map(interviewer => <Appointment key={interviewer.id}{...interviewer}/>)} */}
       </section>
     </main>

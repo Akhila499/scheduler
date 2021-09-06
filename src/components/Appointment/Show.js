@@ -1,7 +1,8 @@
+import { getInterview } from 'helpers/selectors';
 import React from 'react';
 
 export default function Show(props){
-  console.log('111',props);
+  console.log('show',props);
   return (
     <main className="appointment__card appointment__card--show">
       <section className="appointment__card-left">

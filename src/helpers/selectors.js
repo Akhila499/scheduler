@@ -10,6 +10,7 @@ export function getAppointmentsForDay(state, day) {
 
 export function getInterview(state, interview){
   if(!interview){
+    console.log('Null interview');
     return null
   }
   const interviewerdata = state.interviewers[interview.interviewer]
