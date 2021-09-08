@@ -13,10 +13,16 @@ export function getInterview(state, interview){
     console.log('Null interview');
     return null
   }
-  const interviewerdata = state.interviewers[interview.interviewer]
-  let result =  { ...interview, interviewer : {id : interviewerdata.id, avatar : interviewerdata.avatar, name:interviewerdata.name}}
-  console.log('output',result);
+
+  const id = interview.interviewer;
+  const interviewer = state.interviewers[id];
+  const result = {...interview, interviewer};
   return result;
+
+  // const interviewerdata = state.interviewers[interview.interviewer]
+  // let result =  { ...interview, interviewer : {id : interviewerdata.id, avatar : interviewerdata.avatar, name:interviewerdata.name}}
+  // console.log('output',result);
+  // return result;
   
 };
 
