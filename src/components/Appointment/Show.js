@@ -1,4 +1,3 @@
-import { getInterview } from 'helpers/selectors';
 import React from 'react';
 
 export default function Show(props){

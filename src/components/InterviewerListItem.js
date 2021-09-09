@@ -13,16 +13,12 @@ import classnames from 'classnames';
 export default function InterviewerListItem(props) { 
   console.log('interviewerlistitem',props, props.avatar,props.name);
   // const { } = props;
-  const InterviewerListClass =  classnames("interviewers__item",
-    {"interviewers__item-image":props.avatar,
-      "interviewers__item--selected": props.selected,
-      
-    });
+  const InterviewerListClass =  classnames("interviewers__item", { "interviewers__item--selected": props.selected });
 
   return (
 
     <li className={InterviewerListClass} onClick={props.setInterviewer}>
-      <img className={InterviewerListClass} src={props.avatar} alt={props.name}/>
+      <img className="interviewers__item-image" src={props.avatar} alt={props.name}/>
       {props.selected ? <span>{props.name}</span> : '' } 
 
     </li>

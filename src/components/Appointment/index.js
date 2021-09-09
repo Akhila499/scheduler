@@ -83,13 +83,13 @@ export default function Appointment(props) {
       )}
       {mode === SAVING && 
       (
-        <Status
+        <Status message = "Saving"
           onComplete = {()=> transition(SHOW)}
         />
       )}
       {mode === DELETING &&
         (
-          <Status 
+          <Status message = "Deleting"
           onComplete = {() => transition(EMPTY)}
           />
         )
