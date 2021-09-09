@@ -16,7 +16,7 @@ This project can be used to book an appointment / schedule an interview.
 * Cypress and Jest for testing the project.
 
 ### A Quick Glance 
-![]https://github.com/Akhila499/scheduler/blob/master/public/images/SchedularProject.gif
+![https://github.com/Akhila499/scheduler/blob/master/public/images/SchedularProject.gif]
 
 
 ## Setup
