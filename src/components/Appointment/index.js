@@ -24,7 +24,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   )
-  console.log('index', props.interview);
+
   function save(name, interviewer) {
     transition(SAVING);
     const interview = {
@@ -36,29 +36,21 @@ export default function Appointment(props) {
     .then(() => transition(SHOW))
     .catch(e => {
       transition(ERROR_SAVE, true);
-      
       console.log('error in bookInterview', e);
     })
-    // .catch(() => transition(ERROR_SAVE, true))
   }
 
   function cancel(){
     transition(DELETING, true);
-    
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
     .catch(e => {
       transition(ERROR_DELETE, true);
       console.log('error in cancelInterview', e);
     })
-    // .catch(() => transition(ERROR_DELETE, true))
-
     
   }
 
-
-  // const { interview, time } = props;
-  console.log('index', props);
   
   return (
     <article className="appointment">
@@ -76,7 +68,6 @@ export default function Appointment(props) {
       (
         <Form interviewers={props.interviewers} 
           onCancel = {back}
-          // onCancel = {cancelling}
           onSave = {save}
           
         />
@@ -106,7 +97,6 @@ export default function Appointment(props) {
         (
           <Form 
           onCancel={back} 
-          // onCancel={cancelling} 
           onSave = {save}
           interviewers={props.interviewers}
           interviewer = {props.interview.interviewer.id}
@@ -127,9 +117,6 @@ export default function Appointment(props) {
         onClose = {back}
        />
       }
-
-
     </article>
-    
   );
 };

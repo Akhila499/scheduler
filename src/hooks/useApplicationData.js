@@ -5,7 +5,6 @@ import axios from 'axios';
 const useApplicationData = () => {
 
   function bookInterview(id, interview) {
-    // const appointment = {...state.appointments[id]}
     const appointment = {
       ...state.appointments[id], //{...state}
       interview: { ...interview }

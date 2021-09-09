@@ -9,27 +9,7 @@ import useApplicationData from '../hooks/useApplicationData';
 export default function Application() {
   const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
 
-  
-
-  
-  // const setDays = days => setState({ ...state, days });
-    
-  
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  // const dailyInterviewers = getInterviewersForDay(state, state.day);
-  
-  // const schedule = appointments.map((appointment) => {
-  //   const interview = getInterview(state, appointment.interview);
-  
-  //   return (
-  //     <Appointment
-  //       key={appointment.id}
-  //       id={appointment.id}
-  //       time={appointment.time}
-  //       interview={interview}
-  //     />
-  //   );
-  // });
   
   return (
     <main className="layout">

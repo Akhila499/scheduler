@@ -6,21 +6,10 @@ import classnames from 'classnames';
     const formatSpots = () => (
       props.spots ? `${props.spots} spot${props.spots > 1 ? `s`:``} remaining`: `no spots remaining` 
     );
-    
     const dayClass = classnames('day-list__item', {
       'day-list__item--selected': props.selected,
       'day-list__item--full': !props.spots
     })
-
-
-
-    // const avail = !(props.spots); 
-    // //console.log('avail',avail);
-    // const dayClass = classnames("day-list__item", 
-    //   {"day-list__item--selected":props.selected,
-    //   "day-list__item--full": avail}
-    //   );
-    //console.log(props);
     return (
       <li className={dayClass} data-testid="day" onClick={() => props.setDay(props.name)}>
         <h2 >{props.name}</h2> 

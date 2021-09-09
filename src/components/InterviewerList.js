@@ -21,7 +21,6 @@ function InterviewerList(props) {
   });
   return  (
     <section className={interviewersClass}>
-        {/* <h4 className={interviewersClass}>{props.interviewer}</h4> */}
         <ul className={interviewersClass}>
           {parsedinterviewers}
         </ul>

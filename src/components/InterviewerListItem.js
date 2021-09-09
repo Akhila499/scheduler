@@ -12,7 +12,6 @@ import classnames from 'classnames';
 
 export default function InterviewerListItem(props) { 
   console.log('interviewerlistitem',props, props.avatar,props.name);
-  // const { } = props;
   const InterviewerListClass =  classnames("interviewers__item", { "interviewers__item--selected": props.selected });
 
   return (

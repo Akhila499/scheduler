@@ -15,9 +15,7 @@ const Form = function(props){
     reset();
     props.onCancel();
   }
-  // const handleSave = () => {
-  //   props.onSave(name,interviewer);
-  // }
+  
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");
