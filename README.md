@@ -15,8 +15,8 @@ This project can be used to book an appointment / schedule an interview.
 * Axios Api for making server side calls.
 * Cypress and Jest for testing the project.
 
-### A Quick Glance 
-![https://github.com/Akhila499/scheduler/blob/master/public/images/SchedularProject.gif]
+### A Quick Glance
+![Interview Scheduler](https://github.com/Akhila499/scheduler/blob/master/public/images/SchedularProject.gif)
 
 
 ## Setup
